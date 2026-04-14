@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leylen Miloslavich — Research Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f5f2ee;
+    --accent: #c84b2f;
+    --muted: #7a7469;
+    --light: #e8e4de;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 242, 238, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light);
+  }
+
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 6rem 4rem;
+    gap: 4rem;
+  }
+
+  .hero-text {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.8rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #a83d25;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+  }
+
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+    transform: translateY(-1px);
+  }
+
+  .hero-image {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.8s ease forwards 0.45s;
+    position: relative;
+  }
+
+  .hero-image::before {
+    content: '';
+    position: absolute;
+    top: 20px; right: -20px;
+    width: 100%; height: 100%;
+    border: 2px solid var(--accent);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(15%);
+    border-radius: 2px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 6rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--ink);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    line-height: 1.2;
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .about .section-label { color: #c8795f; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about p {
+    color: #c8c4be;
+    line-height: 1.9;
+    font-size: 1.02rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .about p strong {
+    color: var(--paper);
+    font-weight: 500;
+  }
+
+  .about .section-title { color: var(--paper); max-width: 100%; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .stat {
+    border-top: 1px solid #3a3a3a;
+    padding-top: 1.2rem;
+  }
+
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--paper);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* EXPERIENCE */
+  .experience { background: var(--paper); }
+
+  .exp-list { max-width: 800px; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--light);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all 0.5s ease;
+  }
+
+  .exp-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .exp-meta {
+    padding-top: 0.2rem;
+  }
+
+  .exp-period {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+  }
+
+  .exp-company {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .exp-desc {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* SKILLS */
+  .skills { background: var(--light); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .skill-card {
+    background: var(--paper);
+    padding: 2rem;
+    border-radius: 2px;
+    border-top: 3px solid var(--accent);
+  }
+
+  .skill-card h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.7rem;
+    background: var(--light);
+    color: var(--muted);
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--paper);
+    text-align: center;
+    padding: 7rem 6rem;
+  }
+
+  .contact .section-title {
+    margin: 0 auto 1.5rem;
+    max-width: 500px;
+  }
+
+  .contact p {
+    color: var(--muted);
+    max-width: 440px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--muted);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 7rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero-sub { margin: 0 auto 2rem; }
+    .hero-links { justify-content: center; }
+    .hero-image { display: none; }
+    section { padding: 4rem 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Leylen Miloslavich</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Research Operations & Program Management</p>
+    <h1 class="hero-title">Building the systems that let <em>research move fast.</em></h1>
+    <p class="hero-sub">I work at the intersection of scientific research, operational infrastructure, and AI-enabled workflows — making sure complex research organizations can focus on the work that matters most.</p>
+    <div class="hero-links">
+      <a href="#experience" class="btn btn-primary">See my work</a>
+      <a href="#contact" class="btn btn-secondary">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="photo.jpg" alt="Leylen Miloslavich">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div>
+      <p class="section-label">About</p>
+      <h2 class="section-title">Connective tissue between science and execution.</h2>
+    </div>
+    <div>
+      <p>I am a research operations professional with 5+ years of experience owning and scaling operational infrastructure in complex scientific environments. Currently, I serve as the operational backbone of four research labs at <strong>UC Berkeley's Innovative Genomics Institute</strong>, supporting approximately 30 researchers across programs funded by CZI, NSF, NIH, TED Audacious, Biohub, and LBNL.</p>
+      <p>I build the systems, partnerships, and infrastructure that let researchers stay focused on the science. That means external collaborations, contractor networks, onboarding programs, compliance documentation, dashboards, team events, and the coordination architecture that prevents work from stalling quietly in the background.</p>
+      <p>I hold an <strong>MS in Biotechnology</strong>, a <strong>BS in Chemistry</strong>, and an <strong>MBA with Honors</strong> from Boston University, completed while working full time. I use Claude and AI tools daily as a core part of how I run operations — including building metagenomic data processing pipelines for our genomics database.</p>
+      <div class="stats-grid" style="margin-top: 2.5rem;">
+        <div class="stat">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Years in research operations</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">30</div>
+          <div class="stat-label">Researchers supported</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Labs managed simultaneously</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">6+</div>
+          <div class="stat-label">Major funding sources coordinated</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <p class="section-label">Experience</p>
+  <h2 class="section-title">Where I have built things.</h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-period">Jul 2023 — Present</p>
+        <p class="exp-company">UC Berkeley / IGI</p>
+      </div>
+      <div>
+        <h3 class="exp-role">Lab Operations Manager</h3>
+        <p class="exp-desc">Own end-to-end operational infrastructure for four research labs. Manage external partnerships with LBNL, UCSF, and international collaborators; contractor and vendor networks; MTAs; BUAs; onboarding systems; hiring coordination; and real-time dashboards tracking milestones and budgets across hundreds of concurrent procurement lines. Support the WIES Program — an internal accelerator for women-led scientific ventures.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-period">Jul 2022 — May 2023</p>
+        <p class="exp-company">Microgenesis / SOSV IndieBio</p>
+      </div>
+      <div>
+        <h3 class="exp-role">Technical Project Manager</h3>
+        <p class="exp-desc">Owned end-to-end program execution at a pre-Series A fertility startup within SOSV IndieBio. Built program infrastructure from scratch, managed external partners across the US, and synthesized scientific literature and customer feedback into operational and product decisions.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-period">2022</p>
+        <p class="exp-company">Puna Bio / SOSV IndieBio</p>
+      </div>
+      <div>
+        <h3 class="exp-role">Research & Operations Associate</h3>
+        <p class="exp-desc">Conducted R&D on microbial strains for agricultural applications within SOSV IndieBio. Contributed to experimental design, documentation, and early commercialization strategy at a pre-seed life science startup.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-period">2020 — 2021</p>
+        <p class="exp-company">Synthon</p>
+      </div>
+      <div>
+        <h3 class="exp-role">R&D Analyst</h3>
+        <p class="exp-desc">Executed analytical workflows under GMP standards for oncological compound development. Built strong foundations in regulatory compliance, data integrity, and audit-ready documentation.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <p class="section-label">Capabilities</p>
+  <h2 class="section-title">What I bring to the table.</h2>
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <h3>Research Operations</h3>
+      <div class="skill-tags">
+        <span class="tag">Program management</span>
+        <span class="tag">External partnerships</span>
+        <span class="tag">Contractor management</span>
+        <span class="tag">MTA coordination</span>
+        <span class="tag">Grants administration</span>
+        <span class="tag">Onboarding systems</span>
+        <span class="tag">Compliance documentation</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Technical & AI Tools</h3>
+      <div class="skill-tags">
+        <span class="tag">Claude (daily)</span>
+        <span class="tag">Python</span>
+        <span class="tag">Benchling</span>
+        <span class="tag">GitBook</span>
+        <span class="tag">Tableau</span>
+        <span class="tag">Jira / Asana</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Bash</span>
+        <span class="tag">SQL (foundational)</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Communication & Leadership</h3>
+      <div class="skill-tags">
+        <span class="tag">Stakeholder communication</span>
+        <span class="tag">Donor reporting</span>
+        <span class="tag">Scientific writing</span>
+        <span class="tag">Team events</span>
+        <span class="tag">People management (~30)</span>
+        <span class="tag">Hiring coordination</span>
+        <span class="tag">English & Spanish</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label">Get in touch</p>
+  <h2 class="section-title">Let's talk about what's next.</h2>
+  <p>I am currently exploring research operations and program management roles at the intersection of science and AI. If you think there's a fit, I'd love to hear from you.</p>
+  <div class="contact-links">
+    <a href="mailto:leymiloslavich@gmail.com" class="btn btn-primary">leymiloslavich@gmail.com</a>
+    <a href="https://linkedin.com/in/leylen-miloslavich" target="_blank" class="btn btn-secondary">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Leylen Miloslavich &nbsp;·&nbsp; San Francisco Bay Area
+</footer>
+
+<script>
+  // Scroll animation for experience items
+  const items = document.querySelectorAll('.exp-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+  items.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>
