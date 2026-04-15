@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leylen Miloslavich — Research Operations</title>
+<title>Leylen Miloslavich | Research Operations</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -31,7 +31,6 @@
     overflow-x: hidden;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -70,11 +69,10 @@
 
   .nav-links a:hover { color: var(--accent); }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 0.95fr;
     align-items: center;
     padding: 8rem 6rem 4rem;
     gap: 4rem;
@@ -98,9 +96,10 @@
   .hero-title {
     font-family: var(--serif);
     font-size: clamp(2.8rem, 5vw, 4.2rem);
-    line-height: 1.1;
+    line-height: 1.08;
     color: var(--ink);
     margin-bottom: 1.8rem;
+    max-width: 10ch;
   }
 
   .hero-title em {
@@ -111,9 +110,9 @@
   .hero-sub {
     font-size: 1.05rem;
     color: var(--muted);
-    max-width: 480px;
+    max-width: 560px;
     margin-bottom: 2.5rem;
-    line-height: 1.8;
+    line-height: 1.85;
   }
 
   .hero-links {
@@ -159,9 +158,9 @@
     transform: translateY(24px);
     animation: fadeUp 0.8s ease forwards 0.45s;
     position: relative;
+    display: flex;
+    justify-content: center;
   }
-
-  .hero-image::before { display: none; }
 
   .hero-image img {
     width: 100%;
@@ -174,9 +173,26 @@
     z-index: 1;
     filter: grayscale(15%);
     border-radius: 2px;
+    border: 1px solid var(--light);
+    background: var(--light);
   }
 
-  /* SECTIONS */
+  .image-fallback {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 3/4;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid var(--light);
+    background: #ede7df;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
   section {
     padding: 6rem 6rem;
   }
@@ -195,11 +211,10 @@
     font-size: clamp(2rem, 3.5vw, 2.8rem);
     color: var(--ink);
     margin-bottom: 3rem;
-    max-width: 600px;
+    max-width: 700px;
     line-height: 1.2;
   }
 
-  /* ABOUT */
   .about {
     background: var(--ink);
     color: var(--paper);
@@ -254,10 +269,9 @@
     letter-spacing: 0.04em;
   }
 
-  /* EXPERIENCE */
   .experience { background: var(--paper); }
 
-  .exp-list { max-width: 800px; }
+  .exp-list { max-width: 860px; }
 
   .exp-item {
     display: grid;
@@ -306,7 +320,6 @@
     line-height: 1.8;
   }
 
-  /* SKILLS */
   .skills { background: var(--light); }
 
   .skills-grid {
@@ -344,7 +357,6 @@
     letter-spacing: 0.02em;
   }
 
-  /* CONTACT */
   .contact {
     background: var(--paper);
     text-align: center;
@@ -358,7 +370,7 @@
 
   .contact p {
     color: var(--muted);
-    max-width: 440px;
+    max-width: 520px;
     margin: 0 auto 2.5rem;
     line-height: 1.8;
   }
@@ -370,7 +382,6 @@
     flex-wrap: wrap;
   }
 
-  /* FOOTER */
   footer {
     background: var(--ink);
     color: var(--muted);
@@ -380,12 +391,10 @@
     letter-spacing: 0.04em;
   }
 
-  /* ANIMATIONS */
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { gap: 1.5rem; }
@@ -393,6 +402,10 @@
       grid-template-columns: 1fr;
       padding: 7rem 2rem 4rem;
       text-align: center;
+      min-height: auto;
+    }
+    .hero-title {
+      max-width: none;
     }
     .hero-sub { margin: 0 auto 2rem; }
     .hero-links { justify-content: center; }
@@ -416,33 +429,32 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-text">
-    <p class="hero-eyebrow">Research Operations & Program Management</p>
-    <h1 class="hero-title">Building the systems that let <em>research move fast.</em></h1>
-    <p class="hero-sub">I work at the intersection of scientific research, operational infrastructure, and AI-enabled workflows — making sure complex research organizations can focus on the work that matters most.</p>
+    <p class="hero-eyebrow">Research Operations, Technical Program Management & Science Strategy</p>
+    <h1 class="hero-title">Building the systems that let <em>frontier research move fast.</em></h1>
+    <p class="hero-sub">I build operational infrastructure for scientific teams working in complex, high ambiguity environments at the intersection of research, operations, strategy, and AI enabled execution.</p>
     <div class="hero-links">
       <a href="#experience" class="btn btn-primary">See my work</a>
       <a href="#contact" class="btn btn-secondary">Get in touch</a>
     </div>
   </div>
   <div class="hero-image">
-    <img src="photo.jpeg" alt="Leylen Miloslavich">
+    <img src="./photo.jpeg" alt="Leylen Miloslavich" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="image-fallback">Photo not loading. Make sure the file is in the same folder as index.html and named exactly <strong>photo.jpeg</strong>.</div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-grid">
     <div>
       <p class="section-label">About</p>
-      <h2 class="section-title">Connective tissue between science and execution.</h2>
+      <h2 class="section-title">Connective tissue between science, operations, and execution.</h2>
     </div>
     <div>
-      <p>I am a research operations professional with 5+ years of experience owning and scaling operational infrastructure in complex scientific environments. Currently, I serve as the operational backbone of four research labs at <strong>UC Berkeley's Innovative Genomics Institute</strong>, supporting approximately 30 researchers across programs funded by CZI, NSF, NIH, TED Audacious, Biohub, and LBNL.</p>
-      <p>I build the systems, partnerships, and infrastructure that let researchers stay focused on the science. That means external collaborations, contractor networks, onboarding programs, compliance documentation, dashboards, team events, and the coordination architecture that prevents work from stalling quietly in the background.</p>
-      <p>I hold an <strong>MS in Biotechnology</strong>, a <strong>BS in Chemistry</strong>, and an <strong>MBA with Honors</strong> from Boston University, completed while working full time. I use AI tools daily as a core part of how I run operations — including building metagenomic data processing pipelines for our genomics database.</p>
+      <p>I am a research operations professional with 5+ years of experience building and scaling operational infrastructure in complex scientific environments. Currently, I serve as the operational backbone of four research labs at <strong>UC Berkeley's Innovative Genomics Institute</strong>, supporting approximately 30 researchers across programs funded by CZI, NSF, NIH, TED Audacious, Biohub, and LBNL.</p>
+      <p>I build the systems, partnerships, and infrastructure that let researchers stay focused on the science. That includes external collaborations, procurement, sample logistics, onboarding programs, compliance documentation, dashboards, team events, and the coordination architecture that prevents work from stalling quietly in the background.</p>
+      <p>I hold an <strong>MS in Biotechnology</strong>, a <strong>BS in Chemistry</strong>, and an <strong>MBA with Honors</strong> from Boston University, completed while working full time. I use AI tools daily as a core part of how I run operations, and I am currently completing the UC Berkeley Extension Data Science program.</p>
       <div class="stats-grid" style="margin-top: 2.5rem;">
         <div class="stat">
           <div class="stat-number">5+</div>
@@ -465,10 +477,9 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section class="experience" id="experience">
   <p class="section-label">Experience</p>
-  <h2 class="section-title">Where I have built things.</h2>
+  <h2 class="section-title">Where I have built useful infrastructure.</h2>
   <div class="exp-list">
 
     <div class="exp-item">
@@ -478,7 +489,7 @@
       </div>
       <div>
         <h3 class="exp-role">Lab Operations Manager</h3>
-        <p class="exp-desc">Own end-to-end operational infrastructure for four research labs. Manage external partnerships with LBNL, UCSF, and international collaborators; contractor and vendor networks; MTAs; BUAs; onboarding systems; hiring coordination; and real-time dashboards tracking milestones and budgets across hundreds of concurrent procurement lines. Support the WIES Program — an internal accelerator for women-led scientific ventures.</p>
+        <p class="exp-desc">Own end to end operational infrastructure for four research labs. Manage external partnerships with LBNL, UCSF, and international collaborators; procurement workflows across hundreds of concurrent line items; vendor coordination; sample logistics and shipment coordination with collaborators; MTAs; BUAs; onboarding systems; hiring support; team events; and real time dashboards tracking milestones, budgets, and operational dependencies. Support the WIES Program, an internal accelerator for women led scientific ventures.</p>
       </div>
     </div>
 
@@ -489,7 +500,7 @@
       </div>
       <div>
         <h3 class="exp-role">Technical Project Manager</h3>
-        <p class="exp-desc">Owned end-to-end program execution at a pre-Series A fertility startup within SOSV IndieBio. Built program infrastructure from scratch, managed external partners across the US, and synthesized scientific literature and customer feedback into operational and product decisions.</p>
+        <p class="exp-desc">Owned end to end program execution at a pre Series A fertility startup within SOSV IndieBio. Built program infrastructure from scratch, managed external partners across the US, coordinated operational logistics, and synthesized scientific literature and customer feedback into operational and product decisions.</p>
       </div>
     </div>
 
@@ -500,7 +511,7 @@
       </div>
       <div>
         <h3 class="exp-role">Research & Operations Associate</h3>
-        <p class="exp-desc">Conducted R&D on microbial strains for agricultural applications within SOSV IndieBio. Contributed to experimental design, documentation, and early commercialization strategy at a pre-seed life science startup.</p>
+        <p class="exp-desc">Conducted R&D on microbial strains for agricultural applications within SOSV IndieBio. Contributed to experimental design, documentation, cross functional coordination, and early commercialization strategy at a pre seed life science startup.</p>
       </div>
     </div>
 
@@ -511,14 +522,13 @@
       </div>
       <div>
         <h3 class="exp-role">R&D Analyst</h3>
-        <p class="exp-desc">Executed analytical workflows under GMP standards for oncological compound development. Built strong foundations in regulatory compliance, data integrity, and audit-ready documentation.</p>
+        <p class="exp-desc">Executed analytical workflows under GMP standards for oncological compound development. Built strong foundations in regulatory compliance, data integrity, audit ready documentation, and disciplined execution in complex technical environments.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- SKILLS -->
 <section class="skills" id="skills">
   <p class="section-label">Capabilities</p>
   <h2 class="section-title">What I bring to the table.</h2>
@@ -529,11 +539,15 @@
       <div class="skill-tags">
         <span class="tag">Program management</span>
         <span class="tag">External partnerships</span>
-        <span class="tag">Contractor management</span>
+        <span class="tag">Procurement</span>
+        <span class="tag">Sample logistics</span>
+        <span class="tag">Vendor management</span>
         <span class="tag">MTA coordination</span>
         <span class="tag">Grants administration</span>
         <span class="tag">Onboarding systems</span>
+        <span class="tag">Recruiting support</span>
         <span class="tag">Compliance documentation</span>
+        <span class="tag">Team operations</span>
       </div>
     </div>
 
@@ -541,14 +555,17 @@
       <h3>Technical & AI Tools</h3>
       <div class="skill-tags">
         <span class="tag">Claude (daily)</span>
+        <span class="tag">ChatGPT</span>
         <span class="tag">Python</span>
+        <span class="tag">Bash</span>
+        <span class="tag">GitHub</span>
         <span class="tag">Benchling</span>
         <span class="tag">GitBook</span>
         <span class="tag">Tableau</span>
         <span class="tag">Jira / Asana</span>
-        <span class="tag">GitHub</span>
-        <span class="tag">Bash</span>
-        <span class="tag">SQL (foundational)</span>
+        <span class="tag">Notion</span>
+        <span class="tag">Airtable</span>
+        <span class="tag">Data science</span>
       </div>
     </div>
 
@@ -558,9 +575,12 @@
         <span class="tag">Stakeholder communication</span>
         <span class="tag">Donor reporting</span>
         <span class="tag">Scientific writing</span>
+        <span class="tag">External communications</span>
+        <span class="tag">Public facing materials</span>
         <span class="tag">Team events</span>
         <span class="tag">People management (~30)</span>
         <span class="tag">Hiring coordination</span>
+        <span class="tag">Cross functional coordination</span>
         <span class="tag">English & Spanish</span>
       </div>
     </div>
@@ -568,11 +588,10 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <p class="section-label">Get in touch</p>
-  <h2 class="section-title">Let's talk about what's next.</h2>
-  <p>I am currently exploring research operations and program management roles at the intersection of science and AI. If you think there's a fit, I'd love to hear from you.</p>
+  <h2 class="section-title">Let's talk.</h2>
+  <p>I am currently exploring research operations, technical program management, and strategy roles at the intersection of science and AI. If there is a fit, I would love to connect.</p>
   <div class="contact-links">
     <a href="mailto:leymiloslavich@gmail.com" class="btn btn-primary">leymiloslavich@gmail.com</a>
     <a href="https://linkedin.com/in/leylen-miloslavich" target="_blank" class="btn btn-secondary">LinkedIn</a>
@@ -584,7 +603,6 @@
 </footer>
 
 <script>
-  // Scroll animation for experience items
   const items = document.querySelectorAll('.exp-item');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
