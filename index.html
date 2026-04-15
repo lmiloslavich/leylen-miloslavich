@@ -98,13 +98,21 @@
     font-size: clamp(2.8rem, 5vw, 4.2rem);
     line-height: 1.08;
     color: var(--ink);
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.2rem;
     max-width: 10ch;
   }
 
   .hero-title em {
     font-style: italic;
     color: var(--accent);
+  }
+
+  .hero-credentials {
+    font-size: 0.92rem;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.02em;
+    font-weight: 500;
   }
 
   .hero-sub {
@@ -357,6 +365,37 @@
     letter-spacing: 0.02em;
   }
 
+  .courses {
+    background: var(--paper);
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+  }
+
+  .course-card {
+    background: white;
+    padding: 2rem;
+    border: 1px solid var(--light);
+    border-top: 3px solid var(--accent);
+  }
+
+  .course-card h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    color: var(--ink);
+  }
+
+  .course-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
   .contact {
     background: var(--paper);
     text-align: center;
@@ -413,6 +452,7 @@
     section { padding: 4rem 2rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .skills-grid { grid-template-columns: 1fr; }
+    .courses-grid { grid-template-columns: 1fr; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
   }
 </style>
@@ -425,6 +465,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#courses">Courses</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -433,6 +474,7 @@
   <div class="hero-text">
     <p class="hero-eyebrow">Research Operations, Technical Program Management & Science Strategy</p>
     <h1 class="hero-title">Building the systems that let <em>frontier research move fast.</em></h1>
+    <p class="hero-credentials">MS in Biotechnology | BS in Chemistry | MBA with Honors</p>
     <p class="hero-sub">I build operational infrastructure for scientific teams working in complex, high ambiguity environments at the intersection of research, operations, strategy, and AI enabled execution.</p>
     <div class="hero-links">
       <a href="#experience" class="btn btn-primary">See my work</a>
@@ -440,8 +482,8 @@
     </div>
   </div>
   <div class="hero-image">
-    <img src="./photo.jpg" alt="Leylen Miloslavich" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-    <div class="image-fallback">Photo not loading. Make sure the file is in the same folder as index.html and named exactly <strong>photo.jpg</strong>.</div>
+    <img src="./photo.jpeg" alt="Leylen Miloslavich" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="image-fallback">Photo not loading. Make sure the file is in the same folder as index.html and named exactly <strong>photo.jpeg</strong>.</div>
   </div>
 </section>
 
@@ -457,20 +499,20 @@
       <p>I hold an <strong>MS in Biotechnology</strong>, a <strong>BS in Chemistry</strong>, and an <strong>MBA with Honors</strong> from Boston University, completed while working full time. I use AI tools daily as a core part of how I run operations, and I am currently completing the UC Berkeley Extension Data Science program.</p>
       <div class="stats-grid" style="margin-top: 2.5rem;">
         <div class="stat">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">Years in research operations</div>
+          <div class="stat-number">300+</div>
+          <div class="stat-label">Procurement lines managed annually</div>
         </div>
         <div class="stat">
-          <div class="stat-number">30</div>
-          <div class="stat-label">Researchers supported</div>
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Domestic and international shipments annually</div>
         </div>
         <div class="stat">
-          <div class="stat-number">4</div>
-          <div class="stat-label">Labs managed simultaneously</div>
+          <div class="stat-number">20+</div>
+          <div class="stat-label">MTAs managed</div>
         </div>
         <div class="stat">
-          <div class="stat-number">6+</div>
-          <div class="stat-label">Major funding sources coordinated</div>
+          <div class="stat-number">50</div>
+          <div class="stat-label">Researchers and staff onboarded</div>
         </div>
       </div>
     </div>
@@ -484,18 +526,18 @@
 
     <div class="exp-item">
       <div class="exp-meta">
-        <p class="exp-period">Jul 2023 — Present</p>
+        <p class="exp-period">Jul 2023 – Present</p>
         <p class="exp-company">UC Berkeley / IGI</p>
       </div>
       <div>
         <h3 class="exp-role">Lab Operations Manager</h3>
-        <p class="exp-desc">Own end to end operational infrastructure for four research labs. Manage external partnerships with LBNL, UCSF, and international collaborators; procurement workflows across hundreds of concurrent line items; vendor coordination; sample logistics and shipment coordination with collaborators; MTAs; BUAs; onboarding systems; hiring support; team events; and real time dashboards tracking milestones, budgets, and operational dependencies. Support the WIES Program, an internal accelerator for women led scientific ventures.</p>
+        <p class="exp-desc">Own end to end operational infrastructure for four research labs. Manage external partnerships with LBNL, UCSF, and international collaborators; procurement workflows across 300+ concurrent line items annually; vendor coordination; 100+ domestic and international sample shipments per year; 20+ MTAs; onboarding systems; hiring support; team events; and real time dashboards tracking milestones, budgets, and operational dependencies. Built a complete GitBook based onboarding system, including lab guides and metagenomic database processing documentation, and have onboarded approximately 50 researchers and staff.</p>
       </div>
     </div>
 
     <div class="exp-item">
       <div class="exp-meta">
-        <p class="exp-period">Jul 2022 — May 2023</p>
+        <p class="exp-period">Jul 2022 – May 2023</p>
         <p class="exp-company">Microgenesis / SOSV IndieBio</p>
       </div>
       <div>
@@ -517,7 +559,7 @@
 
     <div class="exp-item">
       <div class="exp-meta">
-        <p class="exp-period">2020 — 2021</p>
+        <p class="exp-period">2020 – 2021</p>
         <p class="exp-company">Synthon</p>
       </div>
       <div>
@@ -556,6 +598,7 @@
       <div class="skill-tags">
         <span class="tag">Claude (daily)</span>
         <span class="tag">ChatGPT</span>
+        <span class="tag">GitHub Copilot</span>
         <span class="tag">Python</span>
         <span class="tag">Bash</span>
         <span class="tag">GitHub</span>
@@ -585,6 +628,28 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<section class="courses" id="courses">
+  <p class="section-label">Education & Professional Development</p>
+  <h2 class="section-title">Training that supports how I lead and operate.</h2>
+  <div class="courses-grid">
+    <div class="course-card">
+      <h3>Degrees</h3>
+      <p>Master of Business Administration, Boston University</p>
+      <p>MS in Biotechnology, Universidad Nacional de Rosario</p>
+      <p>BS in Chemistry, Universidad Nacional de Rosario</p>
+    </div>
+
+    <div class="course-card">
+      <h3>Courses & Certifications</h3>
+      <p>Google Project Management Specialization</p>
+      <p>Agile Project Management</p>
+      <p>Project Planning: Putting It All Together</p>
+      <p>Good Clinical Practice for Clinical Research Professionals</p>
+      <p>UC Berkeley Extension Data Science Certificate in Progress</p>
+    </div>
   </div>
 </section>
 
